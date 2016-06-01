@@ -1,0 +1,126 @@
+/*left字体*/
+.af_option li a{
+	color:#4BC0A5;
+	font-size:15px;
+	font-weight:bold;
+}
+#clk{
+	background-color: #000000;
+}
+/*导航相关*/
+.navbar{
+	height: 100px;
+}
+.navbar-right li{
+	display: block;
+	line-height: 100px;
+}
+.navbar-toggle {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+#sc a:hover{
+	background-color:dimgray;
+}
+.login_info{
+	display: block;
+	padding-top: 10px;
+}
+.login_info{
+	font-size: 20px;
+}
+.tag_active{
+	background-color:#EEEEEE;
+}
+/*密码修改*/
+.modify-btn{
+	border:0 none;
+	margin:0;
+	padding:0;
+	width:120px;
+	height:40px;
+	color:white;
+	background:#4BC0A5;
+}
+.modify-btn:hover{
+	background:#00B2A5;
+	color:white;
+	transition:.45s;
+}
+.span_pwd{
+	display: block;
+	text-align: center;
+	color: #22B7F3;
+	font-weight: bold;
+	font-size:20px;
+}
+.first_span_pwd{
+	display: block;
+	color: #22B7F3;
+	font-weight: bold;
+	font-size:20px;
+}
+
+/*老师评语*/
+.teacher_evaluate{
+	width:550px;
+}
+/*teacher 下拉*/
+.select_group .form-control{
+	float: left;
+	width: 200px;
+}
+.select_group span{
+	display: block;
+	float: left;
+	height: 50px;
+	line-height: 30px;
+	padding-left: 50px;
+	
+}
+.select_group select{
+	display: block;
+	float: left;
+	width:200px;
+	height: 30px;
+	margin-right:20px;
+	
+}
+.tab_panel{
+	margin-top: 90px;;
+}
+.first_tab_panel{
+	margin-top: 40px;;
+}
+	
+.evaluate_span{
+	display: block;
+	float: left;
+	height: 50px;
+	line-height: 30px;
+	padding-left: 20px;
+}
+/*评语首部*/
+.select_group1{
+	height: 50px;
+	float: left;
+}
+.select_group2{
+	height: 50px;
+	float: left;
+}
+/*所填的分值*/
+.tf_score{
+	width:60px;
+}
+/**/
+.panel-heading{
+	text-align: center;
+}
+.student_table_result {
+	text-align: center;
+}
+.student_table_result tbody th{
+	text-align: center;
+}
+

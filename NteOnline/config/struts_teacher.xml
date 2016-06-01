@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="teacher" namespace="/teacher" extends="struts-default">
+		<!-- 测试用的action，当与Spring整合后，class属性写的就是Spring中bean的名称 -->
+		<!-- 后台主体页面的布局控制 --> 
+		<action name="teacherOperate_*" class="oa.teacher.action.TeacherAction" method="{1}">
+			<result name="teacherInfo">/WEB-INF/view/teacher/main/teacher_info.jsp</result>
+			<result name="class_evaluate">/WEB-INF/view/teacher/main/class_evaluate.jsp</result>
+			<result name="evaluate_comment">/WEB-INF/view/teacher/main/first_evalute.jsp</result>
+		</action>
+		<action name="teacherEvalute_*" class="oa.teacher.action.TeacherEvaluteAction" method="{1}">
+			<result name="evaluate_comment">/WEB-INF/view/teacher/main/first_evalute.jsp</result>
+		</action>
+    </package>
+    <package name="my_ajax" namespace="/teacher" extends="json-default">
+    	<action name="teacherAjax_*" class="oa.teacher.action.TeacherAjaxAction" method="{1}">
+    		<result name="success" type="json">
+    			<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+    			<param name="root">result</param>
+    			<!-- callbackParameter是ajax回调函数中设置的变量名，也是页面需要返回的数据-->
+    			<param name="callbackParameter">data</param>
+    		</result>
+    	</action>
+    </package>
+</struts>

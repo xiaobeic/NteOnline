@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<include file="struts_student.xml"></include>
+	<include file="struts_teacher.xml"></include>
+	<include file="struts_admin.xml"></include>
+	<include file="struts_leader.xml"></include>
+	<!-- 配置为开发模式 -->
+    <constant name="struts.devMode" value="true" />
+	<!-- 配置扩展名为action -->
+    <constant name="struts.action.extension" value="action" />
+
+
+
+    <package name="main" namespace="/main" extends="struts-default">
+		
+		<!-- 测试用的action，当与Spring整合后，class属性写的就是Spring中bean的名称 -->
+			<!-- 后台主体页面的布局控制 --> 
+			<action name="login_*" class="oa.action.loginAction" method="{1}">
+			
+				<result name="login">/WEB-INF/view/main/login.jsp</result>
+				<result name="studentMain"  type="redirectAction">studentIndex_main.action</result> 
+				<result name="teacherMain" type="redirectAction">teacherIndex_main.action</result>
+				<result name="leaderMain" type="redirectAction">leaderIndex_main.action</result>
+				<result name="adminMain" type="redirectAction">adminIndex_main.action</result>
+			</action>
+			<action name="studentIndex_*" class="oa.action.IndexAction" method="{1}">
+				<result name="main">/WEB-INF/view/student/main/main.jsp</result>
+				<result name="left">/WEB-INF/view/student/main/left.jsp</result>
+				<result name="right">/WEB-INF/view/student/main/right.jsp</result>
+				<result name="top">/WEB-INF/view/student/main/top.jsp</result>
+			</action>
+			<action name="teacherIndex_*" class="oa.action.IndexAction" method="{1}">
+				<result name="main">/WEB-INF/view/teacher/main/main.jsp</result>
+				<result name="left">/WEB-INF/view/teacher/main/left.jsp</result>
+				<result name="right">/WEB-INF/view/teacher/main/right.jsp</result>
+				<result name="top">/WEB-INF/view/teacher/main/top.jsp</result>
+			</action>
+			<action name="adminIndex_*" class="oa.action.IndexAction" method="{1}">
+				<result name="main">/WEB-INF/view/admin/main/main.jsp</result>
+				<result name="left">/WEB-INF/view/admin/main/left.jsp</result>
+				<result name="right">/WEB-INF/view/admin/main/right.jsp</result>
+				<result name="top">/WEB-INF/view/admin/main/top.jsp</result>
+			</action>
+			<action name="leaderIndex_*" class="oa.action.IndexAction" method="{1}">
+				<result name="main">/WEB-INF/view/leader/main/main.jsp</result>
+				<result name="left">/WEB-INF/view/leader/main/left.jsp</result>
+				<result name="right">/WEB-INF/view/leader/main/right.jsp</result>
+				<result name="top">/WEB-INF/view/leader/main/top.jsp</result>
+			</action>
+    </package>	
+</struts>

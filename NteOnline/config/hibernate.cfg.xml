@@ -1,0 +1,45 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+
+	<!-- 数据库信息（连接信息写到spring的配置文件中） -->
+	<property name="dialect">
+		org.hibernate.dialect.MySQL5Dialect
+	</property>
+	<!-- 
+		<property name="connection.url">jdbc:mysql:///itcastoa_20120216</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+	-->
+
+	<!-- 其他配置 -->
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+
+	<!-- 导入映射配置 -->
+	<mapping resource="oa/bean/Admin.hbm.xml" />
+	<mapping resource="oa/bean/Classes.hbm.xml" />
+	<mapping resource="oa/bean/Course.hbm.xml" />
+	<mapping resource="oa/bean/CoursePingJiaProject.hbm.xml" />
+	<mapping resource="oa/bean/CoursePingJiaType.hbm.xml" />
+	<mapping resource="oa/bean/CoursePingYu.hbm.xml" />
+	<mapping resource="oa/bean/CourseScore.hbm.xml" />
+	<mapping resource="oa/bean/DuDaoYuanToCoursePingJiaProject.hbm.xml" />
+	<mapping resource="oa/bean/DuDaoYuanToCoursePingJiaScore.hbm.xml" />
+	<mapping resource="oa/bean/DuDaoYuanToCoursePingJiaType.hbm.xml" />
+	<mapping resource="oa/bean/DuDaoYuanToCoursePingYu.hbm.xml" />
+	<mapping resource="oa/bean/Leader.hbm.xml" />
+	<mapping resource="oa/bean/Student.hbm.xml" />
+	<mapping resource="oa/bean/StudentPingJiaProject.hbm.xml" />
+	<mapping resource="oa/bean/StudentPingJiaScore.hbm.xml" />
+	<mapping resource="oa/bean/StudentPingJiaType.hbm.xml" />
+	<mapping resource="oa/bean/StudentPingYu.hbm.xml" />
+	<mapping resource="oa/bean/Teacher.hbm.xml" />
+
+
+</session-factory>
+</hibernate-configuration>

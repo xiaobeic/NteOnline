@@ -1,0 +1,27 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<div class="pagin">
+				<div class="message">共<i class="blue">${recordCount}</i>条记录，当前显示第&nbsp;<i class="blue">${currentPage}/${pageCount }&nbsp;</i>页</div>
+				<ul class="paginList">
+				<!-- 首页 -->
+					<li class="paginItem"><a href="javascript: gotoPage(1)"><span class="pagepre"></span></a></li>
+					<s:iterator begin="%{beginPageIndex}" end="%{endPageIndex}" var="num">
+						<!-- 当前页 -->
+						<s:if test="#num == currentPage">
+						<li class="paginItem current"><a href="javascript:;">${num}</a></li>
+						</s:if>
+						<!-- 非当前页 -->
+						<s:else>
+						<li class="paginItem"><a onClick="gotoPage(${num});">${num}</a></li>
+						</s:else>
+					</s:iterator>
+					<!-- <li class="paginItem"><a href="javascript:;">1</a></li>
+					<li class="paginItem current"><a href="javascript:;">2</a></li>
+					<li class="paginItem"><a href="javascript:;">3</a></li>
+					<li class="paginItem"><a href="javascript:;">4</a></li>
+					<li class="paginItem"><a href="javascript:;">5</a></li>
+					<li class="paginItem more"><a href="javascript:;">...</a></li>
+					<li class="paginItem"><a href="javascript:;">10</a></li> -->
+					<li class="paginItem"><a href="javascript: gotoPage(${pageCount});"><span class="pagenxt"></span></a></li>
+				</ul>
+			</div>

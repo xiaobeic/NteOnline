@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="oa.bean">
+
+	<class name="StudentPingJiaScore" table="studentPingJiaScore">
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property name="score" type="double"></property>
+		<many-to-one name="studentPingJiaType" class="StudentPingJiaType" column="studentPingJiaTypeid"></many-to-one>
+		<many-to-one name="student" class="Student" column="studentid"></many-to-one>
+		<many-to-one name="course" class="Course" column="courseid"></many-to-one>
+		<many-to-one name="studentPingJiaProject" class="StudentPingJiaProject" column="studentPingJiaProjectid" lazy="no-proxy" ></many-to-one>
+	</class>
+
+</hibernate-mapping>
+        

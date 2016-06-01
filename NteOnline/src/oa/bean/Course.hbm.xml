@@ -1,0 +1,37 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="oa.bean">
+
+	<class name="Course" table="course">
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property name="courseName"/>
+		<many-to-one name="teacher" class="Teacher" column="teacherid"></many-to-one>
+		<set name="students" table="student_course">
+			<key column="courseid"></key>
+			<many-to-many class="Student" column="studentid"></many-to-many>
+		</set>
+		<set name="leaders" table="leader_course" lazy="false">
+			<key column="courseid"></key>
+			<many-to-many class="Leader" column="leaderid"></many-to-many>
+		</set>
+		<set name="studentPingJiaScores">
+			<key column="courseid"></key>
+			<one-to-many class="StudentPingJiaScore"/>
+		</set>
+		<set name="duDaoYuanToCoursePingJiaScores" lazy="false">
+			<key column="courseid"></key>
+			<one-to-many class="DuDaoYuanToCoursePingJiaScore"/>
+		</set>
+		<set name="studentPingYus" lazy="false">
+			<key column="courseid"></key>
+			<one-to-many class="StudentPingYu"/>
+		</set>
+	</class>
+
+</hibernate-mapping>
+        

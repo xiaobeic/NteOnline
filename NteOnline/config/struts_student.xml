@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="student" namespace="/student" extends="struts-default">
+
+		<!-- 测试用的action，当与Spring整合后，class属性写的就是Spring中bean的名称 -->
+		<!-- 后台主体页面的布局控制 -->
+		<action name="studentControl_*" class="oa.action.StudentAction"
+			method="{1}">
+			<result name="personinfo">/WEB-INF/view/student/main/person_info.jsp
+			</result>
+			<result name="modify">/WEB-INF/view/student/main/modify_pass.jsp
+			</result>
+			<result name="selectedCourse">/WEB-INF/view/student/main/IsSelectedCourse.jsp
+			</result>
+			<result name="evaluate_comment">/WEB-INF/view/student/main/evaluate_comment.jsp
+			</result>
+		</action>
+		<action name="studentIndex_*" class="oa.student.action.StudentIndexAction"
+			method="{1}">
+			<result name="main">/WEB-INF/view/student/main/main.jsp
+			</result>
+			<result name="left">/WEB-INF/view/student/main/left.jsp
+			</result>
+			<result name="right">/WEB-INF/view/student/main/right.jsp
+			</result>
+			<result name="top">/WEB-INF/view/student/main/top.jsp
+			</result>
+
+		</action>
+		<action name="studentModify_Pass" class="oa.student.action.StudentPassModifyAction"
+			method="modify">
+			<result name="modifysuccess" type="redirectAction">
+				studentIndex_right.action
+			</result>
+			<result name="fail">/WEB-INF/view/student/main/passModifyError.jsp
+			</result>
+		</action>
+		<action name="studentModify_Info" class="oa.action.StudentAction"
+			method="personinfo">
+			<result name="personinfo">/WEB-INF/view/student/main/modify_info.jsp
+			</result>
+		</action>
+		<action name="studentUpdate_Info" class="oa.student.action.StudentUpdateInfoAction"
+			method="updateInfo">
+			<result name="success">/WEB-INF/view/student/main/updateInfoSuccess.jsp
+			</result>
+			<result name="error">/WEB-INF/view/student/main/updateInfoFail.jsp
+			</result>
+		</action>
+
+
+		<action name="studentXuanKe_Info" class="oa.student.action.StudentXuanKeInfoAction"
+			method="XuanKe_Info">
+			<result name="xuanke">/WEB-INF/view/student/main/xuanke.jsp
+			</result>
+			<result name="success">/WEB-INF/view/student/main/success.jsp
+			</result>
+			<result name="error">/WEB-INF/view/student/main/error.jsp
+			</result>
+		</action>
+		<action name="studentXuanKe_Insert" class="oa.student.action.StudentXuanKeInsertAction"
+			method="XuanKe_Insert">
+			<result name="success">/WEB-INF/view/student/main/success.jsp
+			</result>
+			<result name="error">/WEB-INF/view/student/main/error.jsp
+			</result>
+		</action>
+		<action name="studentGridInfo_*" class="oa.student.action.StudentGridInfoAction"
+			method="{1}">
+			<result name="type">/WEB-INF/view/student/main/typeGrid.jsp
+			</result>
+			<result name="sum">/WEB-INF/view/student/main/sumScore.jsp</result>
+			<result name="pingyu">/WEB-INF/view/student/main/pingyuInfo.jsp
+			</result>
+		</action>
+
+
+
+		<action name="studentEvalute_*" class="oa.student.action.StudentEvaluteAction"
+			method="{1}">
+			<result name="evaluate_comment" type="redirectAction">studentControl_evaluate_comment
+			</result>
+		</action>
+
+	</package>
+	<package name="ajax" namespace="/student" extends="json-default">
+		<action name="studentAjax_*" class="oa.student.action.StudentAjaxAction"
+			method="{1}">
+			<result name="success" type="json">
+				<!-- result是action中设置的变量名，也是页面需要返回的数据，该变量必须有setter和getter方法 -->
+				<param name="root">result</param>
+				<param name="callbackParameter">data</param>
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="oa.bean">
+
+	<class name="DuDaoYuanToCoursePingJiaProject" table="duDaoYuanToCoursePingJiaProject">
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property name="name"/>
+		<set name="duDaoYuanToCoursePingJiaTypes">
+			<key column="duDaoYuanToCoursePingJiaProjectid"></key>
+			<one-to-many class="DuDaoYuanToCoursePingJiaType"/>
+		</set>
+		<set name="duDaoYuanToCoursePingJiaScores">
+			
+			<key column="duDaoYuanToCoursePingJiaProjectid"></key>
+			<one-to-many class="DuDaoYuanToCoursePingJiaScore"/>
+		</set>
+	</class>
+
+</hibernate-mapping>
+        

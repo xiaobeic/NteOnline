@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+html,body{
+	color:#505050;
+	line-height:1.75em;
+	background: #ebebeb;
+}
+
+.main-header{
+	
+	text-align:center;
+	padding:0px 0;
+	background: #FFFFFF
+}
+.main-header .branding{
+	
+	font-size: 3.5em;
+	color:#303030;
+}
+a{
+	color:#e67e22;
+	outline: none;
+	text-decoration: none;
+}
+.main-header .branding img{
+	
+	max-width: 100%;
+}
+a:ACTIVE,a:FOCUS,a img {
+	outline: none;
+}

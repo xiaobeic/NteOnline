@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="oa.bean">
+
+	<class name="Teacher" table="teacher">
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property name="teacherName"/>
+		<property name="username"></property>
+		<property name="password"></property>
+		<property name="age" type="integer"></property>
+		<property name="telephone"></property>
+		<property name="xueli"></property>
+		<set name="courses" lazy="false">
+			<key column="teacherid"></key>
+			<one-to-many class="Course"/>
+		</set>
+	</class>
+
+</hibernate-mapping>
+        

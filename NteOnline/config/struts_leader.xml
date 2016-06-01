@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+
+
+    <package name="leader" namespace="/leader" extends="struts-default">
+		
+		<!-- 测试用的action，当与Spring整合后，class属性写的就是Spring中bean的名称 -->
+			<!-- 后台主体页面的布局控制 --> 
+			
+			<action name="dudaocourse_*" class="oa.leader.action.DuDaoCourseAction" method="{1}">
+			
+				<result name="tocourselist" type="redirectAction">dudaocourse_courseList.action</result>
+				<result name="updatepassword">/WEB-INF/view/leader/UpdatePassword/UpdatePassword.jsp</result>
+				<result name="courselist">/WEB-INF/view/leader/evalute/first_evalute.jsp</result>
+				<result name="login">/WEB-INF/view/main/login.jsp</result>
+				
+			</action>
+			
+    </package>	
+    
+    <package name="leaderAjax" namespace="/leaderAjax" extends="json-default">
+    	
+    	<!-- 督导员 课程管理 -->
+    	<action name="coursetype_*" class="oa.leader.action.DuDaoCourseAction" method="{1}">
+    		
+    		<!-- 获取环节对应的所有方面 -->
+    		<result name="success" type="json">
+    			<param name="root">types</param>
+    			<param name="callbackParameter">data</param>
+    		</result>
+    		<!-- 获取环节对应所有成绩 -->
+    		<result name="score" type="json">
+    			<param name="root">scores</param>
+    			<param name="callbackParameter">data</param>
+    		</result>
+    		<!-- 获取环节评语 -->
+    		<result name="py" type="json">
+    			<param name="root">py</param>
+    			<param name="callbackParameter">data</param>
+    		</result>
+    	</action>
+    	
+    </package>
+</struts>
